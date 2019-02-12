@@ -92,7 +92,7 @@ namespace Lab1
 
         private void Subtotal_Text_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
