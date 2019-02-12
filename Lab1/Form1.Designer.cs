@@ -267,13 +267,13 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "The Great Gatsby",
-            "To Kill a Mockingbird",
-            "Harry Potter"});
+            "The Kite Runner",
+            "Charlie and the Chocolate Factory",
+            "Twilight"});
             this.comboBox1.Location = new System.Drawing.Point(318, 37);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(312, 33);
+            this.comboBox1.Size = new System.Drawing.Size(350, 33);
             this.comboBox1.TabIndex = 19;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
