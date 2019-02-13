@@ -27,6 +27,21 @@ namespace Lab1
             string[] row = new string[] { SelectedItem, "$" + PriceText.Text, Quantity.ToString(), "$" + TotalCost.ToString() };
 
             dataGridView1.Rows.Add(row);
+            string sSubTotal = Subtotal_Text.Text.Replace("$", "");
+            if (sSubTotal.Equals(""))
+            {
+                sSubTotal = "0";
+            }
+
+            double dSubTotal = Convert.ToDouble(sSubTotal);
+            dSubTotal += TotalCost;
+            Subtotal_Text.Text = dSubTotal.ToString("C");
+
+            double tax = dSubTotal * 0.075;
+            TaxText.Text = tax.ToString("C");
+
+            double total = dSubTotal + tax;
+            TotalText.Text = total.ToString("C");
 
         }
 
@@ -93,6 +108,42 @@ namespace Lab1
         private void Subtotal_Text_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void ConfirmOrderButton_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.RowCount >= 1)
+            {
+                MessageBox.Show("You have placed an order!");
+                AuthorText.Text = "";
+                IsbnText.Text = "";
+                PriceText.Text = "";
+                QuantityText.Text = "";
+                TotalText.Text = "";
+                TaxText.Text = "";
+                Subtotal_Text.Text = "";
+                dataGridView1.Rows.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Please add a book.");
+                comboBox1.Focus();
+            }
+        }
+
+        private void CancelOrderButton_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("Do you really want to cancel the order?", "Cancel Order?", MessageBoxButtons.YesNo))
+            {
+                AuthorText.Text = "";
+                IsbnText.Text = "";
+                PriceText.Text = "";
+                QuantityText.Text = "";
+                TotalText.Text = "";
+                TaxText.Text = "";
+                Subtotal_Text.Text = "";
+                dataGridView1.Rows.Clear();
+            }
         }
     }
 }
