@@ -19,7 +19,7 @@ namespace Lab1
         public string ISBN { get; set; }
         public string bookName { get; set; }
         /// <summary>
-        /// 
+        /// Explicit Value Constructor
         /// </summary>
         /// <param name="BookName"></param>
         /// <param name="Author"></param>
@@ -33,7 +33,7 @@ namespace Lab1
             this.bookName = BookName;
         }
         /// <summary>
-        /// 
+        /// Default Value Constructor
         /// </summary>
         public Book()
         {
