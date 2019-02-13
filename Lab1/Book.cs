@@ -18,7 +18,13 @@ namespace Lab1
         public decimal price { get; set; }
         public string ISBN { get; set; }
         public string bookName { get; set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="BookName"></param>
+        /// <param name="Author"></param>
+        /// <param name="isbn"></param>
+        /// <param name="Price"></param>
         public Book(string BookName, string Author, string isbn, decimal Price)
         {
             this.author = Author;
@@ -26,7 +32,9 @@ namespace Lab1
             this.ISBN = isbn;
             this.bookName = BookName;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public Book()
         {
             this.author = null;

@@ -17,7 +17,11 @@ namespace Lab1
             InitializeComponent();
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddTitle_Click(object sender, EventArgs e)
         {
             string SelectedItem = (string)comboBox1.SelectedItem;
@@ -44,7 +48,11 @@ namespace Lab1
             TotalText.Text = total.ToString("C");
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string SelectedItem = (string)comboBox1.SelectedItem;
@@ -94,22 +102,11 @@ namespace Lab1
                 TotalText.Text = "Select a Book to purchase!";
             }
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void QuantityText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Subtotal_Text_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ConfirmOrderButton_Click(object sender, EventArgs e)
         {
             if(dataGridView1.RowCount >= 1)
@@ -130,7 +127,11 @@ namespace Lab1
                 comboBox1.Focus();
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelOrderButton_Click(object sender, EventArgs e)
         {
             if (DialogResult.Yes == MessageBox.Show("Do you really want to cancel the order?", "Cancel Order?", MessageBoxButtons.YesNo))

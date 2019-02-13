@@ -153,7 +153,6 @@
             this.Subtotal_Text.Name = "Subtotal_Text";
             this.Subtotal_Text.Size = new System.Drawing.Size(196, 31);
             this.Subtotal_Text.TabIndex = 9;
-            this.Subtotal_Text.TextChanged += new System.EventHandler(this.Subtotal_Text_TextChanged);
             // 
             // TaxText
             // 
@@ -224,7 +223,6 @@
             this.QuantityText.Name = "QuantityText";
             this.QuantityText.Size = new System.Drawing.Size(196, 31);
             this.QuantityText.TabIndex = 17;
-            this.QuantityText.TextChanged += new System.EventHandler(this.QuantityText_TextChanged);
             // 
             // dataGridView1
             // 
@@ -239,7 +237,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(878, 223);
             this.dataGridView1.TabIndex = 18;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Title
             // 
