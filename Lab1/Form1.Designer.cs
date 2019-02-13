@@ -153,7 +153,6 @@
             this.Subtotal_Text.Name = "Subtotal_Text";
             this.Subtotal_Text.Size = new System.Drawing.Size(196, 31);
             this.Subtotal_Text.TabIndex = 9;
-            this.Subtotal_Text.TextChanged += new System.EventHandler(this.Subtotal_Text_TextChanged);
             // 
             // TaxText
             // 
@@ -224,7 +223,6 @@
             this.QuantityText.Name = "QuantityText";
             this.QuantityText.Size = new System.Drawing.Size(196, 31);
             this.QuantityText.TabIndex = 17;
-            this.QuantityText.TextChanged += new System.EventHandler(this.QuantityText_TextChanged);
             // 
             // dataGridView1
             // 
@@ -239,7 +237,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(878, 223);
             this.dataGridView1.TabIndex = 18;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Title
             // 
@@ -269,13 +266,13 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "The Great Gatsby",
-            "To Kill a Mockingbird",
-            "Harry Potter"});
+            "The Kite Runner",
+            "Charlie and the Chocolate Factory",
+            "Twilight"});
             this.comboBox1.Location = new System.Drawing.Point(318, 37);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(312, 33);
+            this.comboBox1.Size = new System.Drawing.Size(350, 33);
             this.comboBox1.TabIndex = 19;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
