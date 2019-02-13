@@ -18,7 +18,8 @@ namespace Lab1
 
         }
         /// <summary>
-        /// 
+        /// When the "Add Title" button is clicked, the selected book and all of its characteristics will appear in 
+        /// dataGridView1 and also update the subtotal, tax, and total boxes with correct values and information
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -49,7 +50,8 @@ namespace Lab1
 
         }
         /// <summary>
-        /// 
+        /// This creates the book and if a certain book is picked, the corresponding text boxes will update with the
+        /// correct information in each box.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -103,7 +105,8 @@ namespace Lab1
             }
         }
         /// <summary>
-        /// 
+        /// When the "Confirm Order" button is clicked, a new message box will appear confirming that an order has been 
+        /// placed.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -128,7 +131,7 @@ namespace Lab1
             }
         }
         /// <summary>
-        /// 
+        /// If "Cancel" is pressed, the user will be prompted to make sure that they still want to cancel.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
