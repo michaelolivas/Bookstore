@@ -112,7 +112,38 @@ namespace Lab1
 
         private void ConfirmOrderButton_Click(object sender, EventArgs e)
         {
+            if(dataGridView1.RowCount >= 1)
+            {
+                MessageBox.Show("You have placed an order!");
+                AuthorText.Text = "";
+                IsbnText.Text = "";
+                PriceText.Text = "";
+                QuantityText.Text = "";
+                TotalText.Text = "";
+                TaxText.Text = "";
+                Subtotal_Text.Text = "";
+                dataGridView1.Rows.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Please add a book.");
+                comboBox1.Focus();
+            }
+        }
 
+        private void CancelOrderButton_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("Do you really want to cancel the order?", "Cancel Order?", MessageBoxButtons.YesNo))
+            {
+                AuthorText.Text = "";
+                IsbnText.Text = "";
+                PriceText.Text = "";
+                QuantityText.Text = "";
+                TotalText.Text = "";
+                TaxText.Text = "";
+                Subtotal_Text.Text = "";
+                dataGridView1.Rows.Clear();
+            }
         }
     }
 }

@@ -191,6 +191,7 @@
             this.CancelOrderButton.TabIndex = 13;
             this.CancelOrderButton.Text = "Cancel Order";
             this.CancelOrderButton.UseVisualStyleBackColor = true;
+            this.CancelOrderButton.Click += new System.EventHandler(this.CancelOrderButton_Click);
             // 
             // AuthorText
             // 
