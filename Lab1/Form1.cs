@@ -27,6 +27,21 @@ namespace Lab1
             string[] row = new string[] { SelectedItem, "$" + PriceText.Text, Quantity.ToString(), "$" + TotalCost.ToString() };
 
             dataGridView1.Rows.Add(row);
+            string sSubTotal = Subtotal_Text.Text.Replace("$", "");
+            if (sSubTotal.Equals(""))
+            {
+                sSubTotal = "0";
+            }
+
+            double dSubTotal = Convert.ToDouble(sSubTotal);
+            dSubTotal += TotalCost;
+            Subtotal_Text.Text = dSubTotal.ToString("C");
+
+            double tax = dSubTotal * 0.075;
+            TaxText.Text = tax.ToString("C");
+
+            double total = dSubTotal + tax;
+            TotalText.Text = total.ToString("C");
 
         }
 
@@ -93,6 +108,11 @@ namespace Lab1
         private void Subtotal_Text_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void ConfirmOrderButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
