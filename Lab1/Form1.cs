@@ -15,13 +15,31 @@ namespace Lab1
 {
     public partial class Form1 : Form
     {
-        public const Double tax = .1;
+        public const Double tax = .10;
         public Double? subTotal = 0;
         public Form1()
         {
             InitializeComponent();
             this.AutoSize = true; //resize auto
             this.dataGridView1.AllowUserToAddRows = false; //disable user changes
+
+            try
+            {
+                //deserialize file
+                string jsonBook = File.ReadAllText(@"Z:\Desktop\Fourth Year (F18-S19)\CompE561\Lab1\Lab1\bin\Debug\BookList.json");
+
+                //get access to the file
+                var dict = JsonConvert.DeserializeObject<Dictionary<string, Book>>(jsonBook);
+                comboBox1.Items.Clear();
+                foreach (var bookItem in dict) {
+                    comboBox1.Items.Add(bookItem.Key.ToString());
+                }
+            }
+
+            catch
+            {
+                TotalText.Text = "Check File";
+            }
         }
 
         /// <summary>
@@ -32,29 +50,35 @@ namespace Lab1
         /// <param name="e"></param>
         private void AddTitle_Click(object sender, EventArgs e)
         {
-            string SelectedItem = (string)comboBox1.SelectedItem;
-            int Quantity = Int32.Parse(QuantityText.Text);
-            Double TotalCost = Quantity * Convert.ToDouble(PriceText.Text);
-            // Populate the rows.
-            string[] row = new string[] { SelectedItem, "$" + PriceText.Text, Quantity.ToString(), "$" + TotalCost.ToString() };
-
-            dataGridView1.Rows.Add(row);
-            string sSubTotal = Subtotal_Text.Text.Replace("$", "");
-            if (sSubTotal.Equals(""))
+            //get title
+            try
             {
-                sSubTotal = "0";
+                int quantity;
+                bool QTY = int.TryParse(QuantityText.Text, out quantity);
+                
+                if (QTY && quantity != 0 && !(quantity < 0))
+                {
+                    decimal? totalCost = quantity * Convert.ToDecimal(PriceText.Text);
+                    string SelectedItem = (string)comboBox1.SelectedItem;
+                    string[] row = new string[] { SelectedItem, "$" + PriceText.Text, quantity.ToString(), "$" + totalCost.ToString() };
+
+                    dataGridView1.Rows.Add(row);
+                    subTotal += quantity * Convert.ToDouble(PriceText.Text);
+                    Subtotal_Text.Text = "$" + subTotal.ToString();
+                    TaxText.Text = (subTotal * tax).ToString();
+                    TotalText.Text = "$" + ((subTotal * tax) + subTotal).ToString();
+                    QuantityText.Text = quantity.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Enter a Number");
+                    QuantityText.Focus();
+                }
             }
-
-            double dSubTotal = Convert.ToDouble(sSubTotal);
-            dSubTotal += TotalCost;
-            Subtotal_Text.Text = dSubTotal.ToString("C");
-
-            double tax = dSubTotal * 0.075;
-            TaxText.Text = tax.ToString("C");
-
-            double total = dSubTotal + tax;
-            TotalText.Text = total.ToString("C");
-
+            catch
+            {
+                MessageBox.Show("Select a Book");
+            }
         }
         /// <summary>
         /// This creates the book and if a certain book is picked, the corresponding text boxes will update with the
@@ -65,52 +89,36 @@ namespace Lab1
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string SelectedItem = (string)comboBox1.SelectedItem;
-            string Book1Name = "The Kite Runner";
-            decimal Book1Price = 14.40m;
-            string Book1ISBN = "9781594631931";
-            string Book1Author = "Khaled Hosseini";
-
-            string Book2Name = "Charlie and the Chocolate Factory";
-            decimal Book2Price = 7.20m;
-            string Book2ISBN = "9780142410318";
-            string Book2Author = "Roald Dahl";
-
-            string Book3Name = "Twilight";
-            decimal Book3Price = 14.44m;
-            string Book3ISBN = "9780316015844";
-            string Book3Author = "Stephenie Meyer";
-
-            Book Book1 = new Book(Book1Name, Book1Author, Book1ISBN, Book1Price);
-            Book Book2 = new Book(Book2Name, Book2Author, Book2ISBN, Book2Price);
-            Book Book3 = new Book(Book3Name, Book3Author, Book3ISBN, Book3Price);
-            string test = comboBox1.SelectedText;
-            string test2 = e.ToString();
-            if (SelectedItem == "The Kite Runner")
+            try
             {
-                AuthorText.Text = Book1.author;
-                IsbnText.Text = Book1.ISBN;
-                PriceText.Text = Book1.price.ToString();
+                string jsonBook = File.ReadAllText(@"Z:\Desktop\Fourth Year (F18-S19)\CompE561\Lab1\Lab1\bin\Debug\BookList.json");
+                JObject JSON = JObject.Parse(jsonBook);
+                JObject targetBook = (JObject)JSON[SelectedItem];
+                string s_targetBook = targetBook.ToString();
+                Book found = new Book();
+                Newtonsoft.Json.JsonConvert.PopulateObject(s_targetBook, found);
+                AuthorText.Text = found.author; ;
+                IsbnText.Text = found.ISBN;
+                PriceText.Text = found.price.ToString();
             }
-            else if (SelectedItem == "Charlie and the Chocolate Factory")
-            {
-                AuthorText.Text = Book2.author;
-                IsbnText.Text = Book2.ISBN;
-                PriceText.Text = Book2.price.ToString();
-            }
-            else if (SelectedItem == "Twilight")
-            {
-                AuthorText.Text = Book2.author;
-                IsbnText.Text = Book2.ISBN;
-                PriceText.Text = Book2.price.ToString();
-            }
-            else
+
+            catch
             {
                 AuthorText.Clear();
                 IsbnText.Clear();
                 PriceText.Clear();
-                TotalText.Text = "Select a Book to purchase!";
             }
+            QuantityText.Focus();
+            
         }
+
+        public void SaveToTxt(string receipt)
+        {
+            //write string to file
+            System.IO.File.WriteAllText(@"Z:\Desktop\Fourth Year (F18-S19)\CompE561\Lab1\Lab1\bin\Debug\Receipt.txt", receipt);
+        }
+
+
         /// <summary>
         /// When the "Confirm Order" button is clicked, a new message box will appear confirming that an order has been 
         /// placed.
@@ -119,6 +127,7 @@ namespace Lab1
         /// <param name="e"></param>
         private void ConfirmOrderButton_Click(object sender, EventArgs e)
         {
+            /*
             if(dataGridView1.RowCount >= 1)
             {
                 MessageBox.Show("You have placed an order!");
@@ -135,7 +144,20 @@ namespace Lab1
             {
                 MessageBox.Show("Please add a book.");
                 comboBox1.Focus();
-            }
+            }*/
+            Dictionary<string, string> order = new Dictionary<string, string>();
+            string totalItems = "Subtotal: " + Subtotal_Text.Text 
+                                + "   Tax: 10.00%" 
+                                + "   Tax Total: " + TaxText.Text 
+                                + "   Total: " + TotalText.Text;
+            order.Add("Order Total", totalItems);
+            string dateTimeString = $"{DateTime.Today.ToString("d")} {DateTime.Now.ToString("HH:mm:ss")}";
+            order.Add("Transaction Completed", dateTimeString);
+            string receipt = JsonConvert.SerializeObject(order, Formatting.Indented);
+            SaveToTxt(receipt);
+            dataGridView1.Rows.Clear(); //clear fields
+            //ClearTextBoxes();//clear boxes
+            MessageBox.Show("Thank you! Your order has been placed!");
         }
         /// <summary>
         /// If "Cancel" is pressed, the user will be prompted to make sure that they still want to cancel.
