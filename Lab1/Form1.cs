@@ -27,15 +27,12 @@ namespace Lab1
             {
                 //deserialize file
                 string jsonBook = File.ReadAllText(@"Z:\Desktop\Fourth Year (F18-S19)\CompE561\Lab1\Lab1\bin\Debug\BookList.json");
-                JObject json = JObject.Parse(jsonBook);
+
                 //get access to the file
-                //JArray BookList = (JArray)json["BookList"];
-                //List<string> Books = JsonConvert.DeserializeObject<List<string>>(BookList.ToString());
-                Book Books = JsonConvert.DeserializeObject<Book>(jsonBook);
+                var dict = JsonConvert.DeserializeObject<Dictionary<string, Book>>(jsonBook);
                 comboBox1.Items.Clear();
-                for (int x = 0; x < json.Count; x++)
-                {
-                    comboBox1.Items.Add(Books);
+                foreach (var bookItem in dict) {
+                    comboBox1.Items.Add(bookItem.Key.ToString());
                 }
             }
 
