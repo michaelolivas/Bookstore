@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,16 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Lab1
 {
     public partial class Form1 : Form
     {
+        public const Double tax = .1;
+        public Double? subTotal = 0;
         public Form1()
         {
             InitializeComponent();
-
+            this.AutoSize = true; //resize auto
+            this.dataGridView1.AllowUserToAddRows = false; //disable user changes
         }
+
         /// <summary>
         /// When the "Add Title" button is clicked, the selected book and all of its characteristics will appear in 
         /// dataGridView1 and also update the subtotal, tax, and total boxes with correct values and information
