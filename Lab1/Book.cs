@@ -9,10 +9,7 @@ namespace Lab1
     class Book
     {
         public const double tax = .08;
-        private string book1Name;
-        private string book1Author;
-        private string book1ISBN;
-        private decimal book1Price;
+
 
         public string author { get; set; }
         public decimal price { get; set; }

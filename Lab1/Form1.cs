@@ -26,15 +26,16 @@ namespace Lab1
             try
             {
                 //deserialize file
-                string jsonBook = File.ReadAllText(@"\\Mac\Home\Desktop\Fourth Year (F18-S19)\CompE561\Lab1\Lab1\bin\Debug\BookList.json");
-                JObject JSON = JObject.Parse(jsonBook);
+                string jsonBook = File.ReadAllText(@"Z:\Desktop\Fourth Year (F18-S19)\CompE561\Lab1\Lab1\bin\Debug\BookList.json");
+                JObject json = JObject.Parse(jsonBook);
                 //get access to the file
-                JArray BookList = (JArray)JSON["Books"];
-                List<string> Books = JsonConvert.DeserializeObject<List<string>>(BookList.ToString());
+                //JArray BookList = (JArray)json["BookList"];
+                //List<string> Books = JsonConvert.DeserializeObject<List<string>>(BookList.ToString());
+                Book Books = JsonConvert.DeserializeObject<Book>(jsonBook);
                 comboBox1.Items.Clear();
-                for (int x = 0; x < Books.Count; x++)
+                for (int x = 0; x < json.Count; x++)
                 {
-                    comboBox1.Items.Add(JSON[Books[x]]["bookName"].ToString());
+                    comboBox1.Items.Add(Books);
                 }
             }
 
@@ -85,6 +86,27 @@ namespace Lab1
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string SelectedItem = (string)comboBox1.SelectedItem;
+            try
+            {
+                string jsonBook = File.ReadAllText(@"Z:\Desktop\Fourth Year (F18-S19)\CompE561\Lab1\Lab1\bin\Debug\BookList.json");
+                JObject JSON = JObject.Parse(jsonBook);
+                JObject targetBook = (JObject)JSON[SelectedItem];
+                string s_targetBook = targetBook.ToString();
+                Book found = new Book();
+                Newtonsoft.Json.JsonConvert.PopulateObject(s_targetBook, found);
+                AuthorText.Text = found.author; ;
+                IsbnText.Text = found.ISBN;
+                PriceText.Text = found.price.ToString();
+            }
+
+            catch
+            {
+                AuthorText.Clear();
+                IsbnText.Clear();
+                PriceText.Clear();
+            }
+            QuantityText.Focus();
+            /*
             string Book1Name = "The Kite Runner";
             decimal Book1Price = 14.40m;
             string Book1ISBN = "9781594631931";
@@ -130,7 +152,17 @@ namespace Lab1
                 PriceText.Clear();
                 TotalText.Text = "Select a Book to purchase!";
             }
+            */
         }
+
+        public void SaveToTxt(string receipt)
+        {
+
+            //write string to file
+            System.IO.File.WriteAllText(@"Z:\Desktop\Fourth Year (F18-S19)\CompE561\Lab1\Lab1\bin\Debug\Receipt.txt", receipt);
+        }
+
+
         /// <summary>
         /// When the "Confirm Order" button is clicked, a new message box will appear confirming that an order has been 
         /// placed.
