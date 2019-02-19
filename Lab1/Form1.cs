@@ -22,6 +22,26 @@ namespace Lab1
             InitializeComponent();
             this.AutoSize = true; //resize auto
             this.dataGridView1.AllowUserToAddRows = false; //disable user changes
+
+            try
+            {
+                //deserialize file
+                string jsonBook = File.ReadAllText(@"\\Mac\Home\Desktop\Fourth Year (F18-S19)\CompE561\Lab1\Lab1\bin\Debug\BookList.json");
+                JObject JSON = JObject.Parse(jsonBook);
+                //get access to the file
+                JArray BookList = (JArray)JSON["Books"];
+                List<string> Books = JsonConvert.DeserializeObject<List<string>>(BookList.ToString());
+                comboBox1.Items.Clear();
+                for (int x = 0; x < Books.Count; x++)
+                {
+                    comboBox1.Items.Add(JSON[Books[x]]["bookName"].ToString());
+                }
+            }
+
+            catch
+            {
+                TotalText.Text = "Check File";
+            }
         }
 
         /// <summary>
