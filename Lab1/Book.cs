@@ -8,8 +8,6 @@ namespace Lab1
 {
     class Book
     {
-        public const double tax = .08;
-
 
         public string author { get; set; }
         public decimal price { get; set; }
