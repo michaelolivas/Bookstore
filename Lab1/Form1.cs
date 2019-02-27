@@ -127,24 +127,6 @@ namespace Lab1
         /// <param name="e"></param>
         private void ConfirmOrderButton_Click(object sender, EventArgs e)
         {
-            /*
-            if(dataGridView1.RowCount >= 1)
-            {
-                MessageBox.Show("You have placed an order!");
-                AuthorText.Text = "";
-                IsbnText.Text = "";
-                PriceText.Text = "";
-                QuantityText.Text = "";
-                TotalText.Text = "";
-                TaxText.Text = "";
-                Subtotal_Text.Text = "";
-                dataGridView1.Rows.Clear();
-            }
-            else
-            {
-                MessageBox.Show("Please add a book.");
-                comboBox1.Focus();
-            }*/
             Dictionary<string, string> order = new Dictionary<string, string>();
             string totalItems = "Subtotal: " + Subtotal_Text.Text 
                                 + "   Tax: 10.00%" 
