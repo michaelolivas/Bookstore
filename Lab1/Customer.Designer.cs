@@ -1,4 +1,7 @@
-﻿namespace Lab1
+﻿
+using System;
+
+namespace Lab1
 {
     partial class Customer
     {
@@ -28,256 +31,298 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.nameFirst = new System.Windows.Forms.TextBox();
-            this.firstName = new System.Windows.Forms.Label();
-            this.nameLast = new System.Windows.Forms.TextBox();
-            this.lastName = new System.Windows.Forms.Label();
-            this.address = new System.Windows.Forms.Label();
-            this.addressLine = new System.Windows.Forms.TextBox();
-            this.city = new System.Windows.Forms.Label();
-            this.cityLine = new System.Windows.Forms.TextBox();
-            this.state = new System.Windows.Forms.Label();
-            this.stateLine = new System.Windows.Forms.TextBox();
-            this.zip = new System.Windows.Forms.Label();
-            this.zipLine = new System.Windows.Forms.TextBox();
-            this.phone = new System.Windows.Forms.Label();
-            this.phoneLine = new System.Windows.Forms.TextBox();
-            this.email = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.back = new System.Windows.Forms.Button();
-            this.newCust = new System.Windows.Forms.Button();
-            this.save = new System.Windows.Forms.Button();
-            this.cancel = new System.Windows.Forms.Button();
-            this.edit = new System.Windows.Forms.ComboBox();
+            this.comboBox = new System.Windows.Forms.ComboBox();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.newCustomerButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.firstTextBox = new System.Windows.Forms.TextBox();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.cityTextBox = new System.Windows.Forms.TextBox();
+            this.PhoneTextBox = new System.Windows.Forms.TextBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.lastTextBox = new System.Windows.Forms.TextBox();
+            this.stateTextBox = new System.Windows.Forms.TextBox();
+            this.zipTextBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.statusTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // nameFirst
+            // comboBox
             // 
-            this.nameFirst.Location = new System.Drawing.Point(141, 82);
-            this.nameFirst.Name = "nameFirst";
-            this.nameFirst.Size = new System.Drawing.Size(244, 31);
-            this.nameFirst.TabIndex = 0;
+            this.comboBox.FormattingEnabled = true;
+            this.comboBox.Location = new System.Drawing.Point(44, 41);
+            this.comboBox.Name = "comboBox";
+            this.comboBox.Size = new System.Drawing.Size(356, 32);
+            this.comboBox.TabIndex = 0;
+            this.comboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             // 
-            // firstName
+            // cancelButton
             // 
-            this.firstName.AutoSize = true;
-            this.firstName.Location = new System.Drawing.Point(13, 85);
-            this.firstName.Name = "firstName";
-            this.firstName.Size = new System.Drawing.Size(122, 25);
-            this.firstName.TabIndex = 1;
-            this.firstName.Text = "First Name:";
+            this.cancelButton.Location = new System.Drawing.Point(1005, 274);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(123, 41);
+            this.cancelButton.TabIndex = 1;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // nameLast
+            // SaveButton
             // 
-            this.nameLast.Location = new System.Drawing.Point(533, 82);
-            this.nameLast.Name = "nameLast";
-            this.nameLast.Size = new System.Drawing.Size(255, 31);
-            this.nameLast.TabIndex = 2;
+            this.SaveButton.Location = new System.Drawing.Point(1005, 188);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(123, 41);
+            this.SaveButton.TabIndex = 2;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // lastName
+            // newCustomerButton
             // 
-            this.lastName.AutoSize = true;
-            this.lastName.Location = new System.Drawing.Point(406, 85);
-            this.lastName.Name = "lastName";
-            this.lastName.Size = new System.Drawing.Size(121, 25);
-            this.lastName.TabIndex = 3;
-            this.lastName.Text = "Last Name:";
+            this.newCustomerButton.Location = new System.Drawing.Point(913, 109);
+            this.newCustomerButton.Name = "newCustomerButton";
+            this.newCustomerButton.Size = new System.Drawing.Size(215, 41);
+            this.newCustomerButton.TabIndex = 3;
+            this.newCustomerButton.Text = "New Customer";
+            this.newCustomerButton.UseVisualStyleBackColor = true;
+            this.newCustomerButton.Click += new System.EventHandler(this.newCustomerButton_Click);
             // 
-            // address
+            // backButton
             // 
-            this.address.AutoSize = true;
-            this.address.Location = new System.Drawing.Point(18, 149);
-            this.address.Name = "address";
-            this.address.Size = new System.Drawing.Size(97, 25);
-            this.address.TabIndex = 4;
-            this.address.Text = "Address:";
+            this.backButton.Location = new System.Drawing.Point(1005, 42);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(123, 41);
+            this.backButton.TabIndex = 4;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
-            // addressLine
+            // label1
             // 
-            this.addressLine.Location = new System.Drawing.Point(121, 146);
-            this.addressLine.Name = "addressLine";
-            this.addressLine.Size = new System.Drawing.Size(666, 31);
-            this.addressLine.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(39, 123);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(112, 25);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "First Name:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // city
+            // label2
             // 
-            this.city.AutoSize = true;
-            this.city.Location = new System.Drawing.Point(18, 206);
-            this.city.Name = "city";
-            this.city.Size = new System.Drawing.Size(55, 25);
-            this.city.TabIndex = 6;
-            this.city.Text = "City:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(39, 321);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 25);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Phone:";
             // 
-            // cityLine
+            // label3
             // 
-            this.cityLine.Location = new System.Drawing.Point(79, 203);
-            this.cityLine.Name = "cityLine";
-            this.cityLine.Size = new System.Drawing.Size(206, 31);
-            this.cityLine.TabIndex = 7;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(39, 255);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 25);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "City:";
             // 
-            // state
+            // label4
             // 
-            this.state.AutoSize = true;
-            this.state.Location = new System.Drawing.Point(305, 206);
-            this.state.Name = "state";
-            this.state.Size = new System.Drawing.Size(68, 25);
-            this.state.TabIndex = 8;
-            this.state.Text = "State:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(39, 187);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 25);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Address:";
             // 
-            // stateLine
+            // label5
             // 
-            this.stateLine.Location = new System.Drawing.Point(380, 203);
-            this.stateLine.Name = "stateLine";
-            this.stateLine.Size = new System.Drawing.Size(100, 31);
-            this.stateLine.TabIndex = 9;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(446, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(112, 25);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Last Name:";
             // 
-            // zip
+            // label6
             // 
-            this.zip.AutoSize = true;
-            this.zip.Location = new System.Drawing.Point(512, 206);
-            this.zip.Name = "zip";
-            this.zip.Size = new System.Drawing.Size(48, 25);
-            this.zip.TabIndex = 10;
-            this.zip.Text = "Zip:";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(505, 252);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 25);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "State:";
             // 
-            // zipLine
+            // label7
             // 
-            this.zipLine.Location = new System.Drawing.Point(566, 203);
-            this.zipLine.Name = "zipLine";
-            this.zipLine.Size = new System.Drawing.Size(146, 31);
-            this.zipLine.TabIndex = 11;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(751, 252);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(98, 25);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Zip Code:";
             // 
-            // phone
+            // label8
             // 
-            this.phone.AutoSize = true;
-            this.phone.Location = new System.Drawing.Point(18, 272);
-            this.phone.Name = "phone";
-            this.phone.Size = new System.Drawing.Size(80, 25);
-            this.phone.TabIndex = 12;
-            this.phone.Text = "Phone:";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(613, 270);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 25);
+            this.label8.TabIndex = 12;
             // 
-            // phoneLine
+            // label9
             // 
-            this.phoneLine.Location = new System.Drawing.Point(105, 269);
-            this.phoneLine.Name = "phoneLine";
-            this.phoneLine.Size = new System.Drawing.Size(280, 31);
-            this.phoneLine.TabIndex = 13;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(39, 405);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(66, 25);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Email:";
             // 
-            // email
+            // firstTextBox
             // 
-            this.email.AutoSize = true;
-            this.email.Location = new System.Drawing.Point(18, 330);
-            this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(71, 25);
-            this.email.TabIndex = 14;
-            this.email.Text = "Email:";
+            this.firstTextBox.Location = new System.Drawing.Point(169, 123);
+            this.firstTextBox.Name = "firstTextBox";
+            this.firstTextBox.Size = new System.Drawing.Size(231, 29);
+            this.firstTextBox.TabIndex = 14;
             // 
-            // textBox1
+            // addressTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 327);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(422, 31);
-            this.textBox1.TabIndex = 15;
+            this.addressTextBox.Location = new System.Drawing.Point(169, 185);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(796, 29);
+            this.addressTextBox.TabIndex = 15;
             // 
-            // back
+            // cityTextBox
             // 
-            this.back.Location = new System.Drawing.Point(823, 48);
-            this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(179, 46);
-            this.back.TabIndex = 16;
-            this.back.Text = "Back";
-            this.back.UseVisualStyleBackColor = true;
+            this.cityTextBox.Location = new System.Drawing.Point(169, 250);
+            this.cityTextBox.Name = "cityTextBox";
+            this.cityTextBox.Size = new System.Drawing.Size(305, 29);
+            this.cityTextBox.TabIndex = 16;
             // 
-            // newCust
+            // PhoneTextBox
             // 
-            this.newCust.Location = new System.Drawing.Point(823, 100);
-            this.newCust.Name = "newCust";
-            this.newCust.Size = new System.Drawing.Size(179, 48);
-            this.newCust.TabIndex = 17;
-            this.newCust.Text = "New Customer";
-            this.newCust.UseVisualStyleBackColor = true;
+            this.PhoneTextBox.Location = new System.Drawing.Point(169, 321);
+            this.PhoneTextBox.Name = "PhoneTextBox";
+            this.PhoneTextBox.Size = new System.Drawing.Size(231, 29);
+            this.PhoneTextBox.TabIndex = 17;
             // 
-            // save
+            // emailTextBox
             // 
-            this.save.Location = new System.Drawing.Point(823, 154);
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(179, 47);
-            this.save.TabIndex = 18;
-            this.save.Text = "Save";
-            this.save.UseVisualStyleBackColor = true;
+            this.emailTextBox.Location = new System.Drawing.Point(169, 405);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(305, 29);
+            this.emailTextBox.TabIndex = 18;
             // 
-            // cancel
+            // lastTextBox
             // 
-            this.cancel.Location = new System.Drawing.Point(823, 208);
-            this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(179, 46);
-            this.cancel.TabIndex = 19;
-            this.cancel.Text = "Cancel";
-            this.cancel.UseVisualStyleBackColor = true;
+            this.lastTextBox.Location = new System.Drawing.Point(564, 123);
+            this.lastTextBox.Name = "lastTextBox";
+            this.lastTextBox.Size = new System.Drawing.Size(241, 29);
+            this.lastTextBox.TabIndex = 19;
             // 
-            // edit
+            // stateTextBox
             // 
-            this.edit.FormattingEnabled = true;
-            this.edit.Location = new System.Drawing.Point(18, 13);
-            this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(770, 33);
-            this.edit.TabIndex = 20;
+            this.stateTextBox.Location = new System.Drawing.Point(565, 252);
+            this.stateTextBox.Name = "stateTextBox";
+            this.stateTextBox.Size = new System.Drawing.Size(159, 29);
+            this.stateTextBox.TabIndex = 20;
             // 
-            // Customer
+            // zipTextBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.zipTextBox.Location = new System.Drawing.Point(865, 252);
+            this.zipTextBox.Name = "zipTextBox";
+            this.zipTextBox.Size = new System.Drawing.Size(100, 29);
+            this.zipTextBox.TabIndex = 21;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(560, 405);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(74, 25);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Status:";
+            // 
+            // statusTextBox
+            // 
+            this.statusTextBox.Location = new System.Drawing.Point(630, 401);
+            this.statusTextBox.Name = "statusTextBox";
+            this.statusTextBox.ReadOnly = true;
+            this.statusTextBox.Size = new System.Drawing.Size(498, 29);
+            this.statusTextBox.TabIndex = 23;
+            this.statusTextBox.TextChanged += new System.EventHandler(this.statusTextBox_TextChanged);
+            // 
+            // CustomerPortal
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 450);
-            this.Controls.Add(this.edit);
-            this.Controls.Add(this.cancel);
-            this.Controls.Add(this.save);
-            this.Controls.Add(this.newCust);
-            this.Controls.Add(this.back);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.email);
-            this.Controls.Add(this.phoneLine);
-            this.Controls.Add(this.phone);
-            this.Controls.Add(this.zipLine);
-            this.Controls.Add(this.zip);
-            this.Controls.Add(this.stateLine);
-            this.Controls.Add(this.state);
-            this.Controls.Add(this.cityLine);
-            this.Controls.Add(this.city);
-            this.Controls.Add(this.addressLine);
-            this.Controls.Add(this.address);
-            this.Controls.Add(this.lastName);
-            this.Controls.Add(this.nameLast);
-            this.Controls.Add(this.firstName);
-            this.Controls.Add(this.nameFirst);
-            this.Name = "Customer";
-            this.Text = "Customer";
+            this.ClientSize = new System.Drawing.Size(1167, 570);
+            this.Controls.Add(this.statusTextBox);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.zipTextBox);
+            this.Controls.Add(this.stateTextBox);
+            this.Controls.Add(this.lastTextBox);
+            this.Controls.Add(this.emailTextBox);
+            this.Controls.Add(this.PhoneTextBox);
+            this.Controls.Add(this.cityTextBox);
+            this.Controls.Add(this.addressTextBox);
+            this.Controls.Add(this.firstTextBox);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.newCustomerButton);
+            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.comboBox);
+            this.Name = "CustomerPortal";
+            this.Text = "CustomerPortal";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
+
         #endregion
 
-        private System.Windows.Forms.TextBox nameFirst;
-        private System.Windows.Forms.Label firstName;
-        private System.Windows.Forms.TextBox nameLast;
-        private System.Windows.Forms.Label lastName;
-        private System.Windows.Forms.Label address;
-        private System.Windows.Forms.TextBox addressLine;
-        private System.Windows.Forms.Label city;
-        private System.Windows.Forms.TextBox cityLine;
-        private System.Windows.Forms.Label state;
-        private System.Windows.Forms.TextBox stateLine;
-        private System.Windows.Forms.Label zip;
-        private System.Windows.Forms.TextBox zipLine;
-        private System.Windows.Forms.Label phone;
-        private System.Windows.Forms.TextBox phoneLine;
-        private System.Windows.Forms.Label email;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button back;
-        private System.Windows.Forms.Button newCust;
-        private System.Windows.Forms.Button save;
-        private System.Windows.Forms.Button cancel;
-        private System.Windows.Forms.ComboBox edit;
+        private System.Windows.Forms.ComboBox comboBox;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button newCustomerButton;
+        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox firstTextBox;
+        private System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.TextBox cityTextBox;
+        private System.Windows.Forms.TextBox PhoneTextBox;
+        private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.TextBox lastTextBox;
+        private System.Windows.Forms.TextBox stateTextBox;
+        private System.Windows.Forms.TextBox zipTextBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox statusTextBox;
     }
 }
