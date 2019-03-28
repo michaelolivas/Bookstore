@@ -65,7 +65,7 @@ namespace Lab1
             string customerJSON = File.ReadAllText(path);
             JObject json = JObject.Parse(customerJSON);
             //access books
-            JArray custoList = (JArray)json["CustomerList"];
+            JArray custoList = (JArray)json["Customers"];
             //made list of only book names for the combobox. See JSON File
             List<string> Customers = JsonConvert.DeserializeObject<List<string>>(custoList.ToString());
             comboBox.Items.Clear();
@@ -196,7 +196,7 @@ namespace Lab1
                 string custoJSON = File.ReadAllText(path);
                 JObject json = JObject.Parse(custoJSON);
                 //access employees
-                JArray custoList = (JArray)json["CustomerList"];
+                JArray custoList = (JArray)json["CustomerAdd"];
                 //add customer name to list
                 custoList.Add(custoName);
 
